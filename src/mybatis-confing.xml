@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<!-- 1.整合Spring，通常情况下，只保留这个别名的节点 -->
+	<typeAliases>
+		<package name="com.hxx.ssm.pojo.SSMUser" />
+	</typeAliases>
+</configuration>

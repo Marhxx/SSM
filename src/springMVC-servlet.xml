@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.3.xsd
+		http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.3.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
+
+
+	<!-- 5. springMvc的配置文件基本不需要改动。扫描控制器、配置静态资源、视图分解器配置、启用注解 -->
+	<!-- 整合SSM时，扫描Controller控制器  有控制层就加上控制层 -->
+	<context:component-scan base-package="com.hxx.ssm.controller,com.hxx.ssm.service" /> 
+	<!-- 启动注解 -->
+	<mvc:annotation-driven />
+	<mvc:default-servlet-handler/>
+	<!-- 视图分解器的配置 -->
+	<bean id="viewResolver"
+		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="prefix" value="/" />
+		<property name="suffix" value=".jsp"></property>
+	</bean>
+
+
+</beans>

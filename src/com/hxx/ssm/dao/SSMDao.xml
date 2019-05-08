@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hxx.ssm.dao.SSMDao">
+	<!-- 查询一个用户信息 -->
+	<select id="SelectFindAll" resultType="com.hxx.ssm.pojo.SSMUser">
+		select * from usa
+	</select>
+	<!-- 删除 -->
+	<delete id="delect" parameterType="int">
+		delete from usa where uid =
+		#{uid}
+	</delete>
+	
+	<!-- 修改先查询一个对象 -->
+	<select id="SelectgetById" resultType="com.hxx.ssm.pojo.SSMUser">
+	select * from usa where uid =#{uid}
+	</select>
+	
+	<!-- 修改先查询一个对象      再来修改-->
+	<update id="Update">
+	UPDATE usa set uname = #{uname},pwd=#{pwd},url=#{url},price=#{price} where uid = #{uid}
+	</update>
+	
+	<select id="listByLike" parameterType="map" resultType="com.hxx.ssm.pojo.SSMUser">
+		SELECT * FROM usa 
+		<where>
+			<if test="name != null and name != ''">
+			and uname LIKE '%${name}%'
+				<!-- uname LIKE '${name}' -->
+			</if>
+		</where> 
+	</select>
+	
+	
+	<!-- 添加 -->
+	<insert id="Add">
+	insert into usa (uname,pwd,url,price) VALUES (#{uname},#{pwd},#{url},#{price})
+	</insert>
+
+</mapper>
